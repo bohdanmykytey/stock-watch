@@ -32,10 +32,12 @@ function App() {
               <div className="stock" key={index}>
                 <h2>{stock.companyName}</h2>
                 <div className="details">
-                  <p>Price: ${stock.price}</p>
+                  <h3>Price: ${stock.price}</h3>
                   <p>{stock.exchange}</p>
                   <p>{stock.industry}</p>
                   <p>{stock.description}</p>
+                  <a href={stock.website} target="_blank">Company Site</a>
+                  <p>{stock.city}, {stock.state}</p>
                 </div>
               </div>
             );
