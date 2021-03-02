@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react'
+import axios from 'axios'
 
 function App() {
+  const [stocks, setStocks] = useState(null)
+
+  const fetchData = async () =>  {
+    const apiURL = 'https://financialmodelingprep.com/api/v3/profile/AAPL?apikey=5f19ea882fea37e649bdc3230aa7ed2c'
+    
+    const response = await axios.get(apiURL)
+    setStocks(response.data)
+    console.log(response.data)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+
+    <button onClick={fetchData}>Fetch Stocks</button>
     </div>
   );
 }
