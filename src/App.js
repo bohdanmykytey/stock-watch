@@ -2,38 +2,55 @@ import "./App.css";
 import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Card, Col, Image, InputGroup, FormControl } from "react-bootstrap";
-import Footer from './components/footer'
+import {
+  Button,
+  Card,
+  Col,
+  Image,
+  InputGroup,
+  FormControl,
+} from "react-bootstrap";
+import Footer from "./components/footer";
 
 function App() {
   const [stocks, setStocks] = useState(null);
   const [input, setInput] = useState("");
+  const [error, setError] = useState(false);
 
   const fetchData = async () => {
     const apiURL = `https://financialmodelingprep.com/api/v3/profile/${input}?apikey=5f19ea882fea37e649bdc3230aa7ed2c`;
-
-    const response = await axios.get(apiURL);
-    setStocks(response.data);
-    console.log(response.data);
-    //implement error handling
+    try {
+      const response = await axios.get(apiURL);
+      setStocks(response.data);
+      console.log(response.data);
+    } catch (error) {
+      setError(true);
+    }
   };
 
   return (
     <div className="App">
       <div className="search">
-      <InputGroup className="mb-3">
-        <FormControl
-          placeholder="Type Stock Symbol Here..."
-          aria-label="Search for a Stock Symbol Here"
-          aria-describedby="basic-addon2"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && fetchData()} need to implement search on enter button
+        <InputGroup className="mb-3">
+          <FormControl
+            placeholder="Type Stock Symbol Here..."
+            aria-label="Search for a Stock Symbol Here"
+            aria-describedby="basic-addon2"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && fetchData()}
           />
-        <InputGroup.Append>
-          <Button variant="outline-secondary" onClick={fetchData}>Search</Button>
-        </InputGroup.Append>
-      </InputGroup>
+          <InputGroup.Append>
+            <Button variant="outline-secondary" onClick={fetchData}>
+              Search
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
+            {error && (
+              <div style={{ color: `red` }}>
+                error occurred, while fetching API
+              </div>
+            )}
       </div>
 
       <div className="stocks">

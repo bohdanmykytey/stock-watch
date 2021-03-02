@@ -28,7 +28,13 @@ html, body{
   margin: 0 auto;
 }
 
-.col-md-4 {
+.col-md-4.col-6 {
+  margin: 0 auto;
+}
+
+/* edge cases where the company logo is not perfectly centered
+because of how they are coming back from the api */
+.img.logo {
   margin: 0 auto;
 }
 
