@@ -1,10 +1,27 @@
 .App {
   text-align: center;
+  margin: 0 auto;
+}
+
+.search {
+  padding-top: 10px;
+  padding-left: 18.5%;
+  padding-right: 18.5%;
+}
+
+.card  {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 auto;
 }
 
 .description  {
   width: 70%;
   height: auto;
+  margin: 0 auto;
+}
+
+.col-md-4 {
   margin: 0 auto;
 }
 
@@ -23,6 +40,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.card-body  {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
 }
 
 .App-link {

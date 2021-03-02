@@ -1,6 +1,9 @@
 import "./App.css";
 import React, { useState } from "react";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Card, Row, Container, Col, Image, InputGroup, FormControl } from "react-bootstrap";
+import Footer from './components/footer'
 
 function App() {
   const [stocks, setStocks] = useState(null);
@@ -17,35 +20,55 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="text"
-        placeholder="Type Stock Symbol Here..."
-        value={input}
-        onChange={(event) => setInput(event.target.value)}
-      ></input>
-      <button 
-        onClick={fetchData}
-        // onKeyPress={(e) => e.key === 'Enter' && fetchData()} need to implement search on enter button
-        >Fetch Stocks</button>
+      <div className="search">
+      <InputGroup className="mb-3">
+        <FormControl
+          placeholder="Type Stock Symbol Here..."
+          aria-label="Search for a Stock Symbol Here"
+          aria-describedby="basic-addon2"
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          // onKeyPress={(e) => e.key === 'Enter' && fetchData()} need to implement search on enter button
+          />
+        <InputGroup.Append>
+          <Button variant="outline-secondary" onClick={fetchData}>Button</Button>
+        </InputGroup.Append>
+      </InputGroup>
+      </div>
 
       <div className="stocks">
         {stocks &&
           stocks.map((stock, index) => {
             return (
-              <div className="stock" key={index}>
-                <h2>{stock.companyName}</h2>
-                <div className="details">
-                  <h3>Price: ${stock.price}</h3>
-                  <p>{stock.exchange}</p>
-                  <p>{stock.industry}</p>
-                  <div className="description">{stock.description}</div>
-                  <a href={stock.website} target="_blank">Company Site</a>
-                  <p>{stock.city}, {stock.state}</p>
-                </div>
+              <div className="details" key={index}>
+                <Card style={{ width: "50rem", height: "auto" }}>
+                  <Card.Body>
+                    <Card.Title>
+                      <h1>{stock.companyName}</h1>
+                      <Col xs={6} md={4}>
+                        <Image className="logo" src={stock.image} circle />
+                      </Col>
+                    </Card.Title>
+                    <Card.Text>
+                      <h4>Price: ${stock.price}</h4>
+                      <p>{stock.exchange}</p>
+                      <h5>{stock.symbol}</h5>
+                      <p>{stock.industry}</p>
+                      <p>{stock.description}</p>
+                      <a href={stock.website} target="_blank">
+                        {stock.companyName} Site
+                      </a>
+                      <p>
+                        {stock.city}, {stock.state}
+                      </p>
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
               </div>
             );
           })}
       </div>
+      <Footer />
     </div>
   );
 }
