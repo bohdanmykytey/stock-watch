@@ -5,7 +5,7 @@ function Footer() {
     return (
         <div class="footer">
         <Card>
-            <Card.Header>React Hooks with React-BootStrap App</Card.Header>
+            <Card.Header>React Hooks App with React-BootStrap</Card.Header>
             <Card.Body>
                 <blockquote className="blockquote mb-0">
                     <p>
