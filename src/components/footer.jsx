@@ -1,17 +1,24 @@
 import React from 'react'
-import {Card} from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 
 function Footer() {
     return (
-        <Card className="text-center">
-            <Card.Header>React Hooks With React-Bootstrap</Card.Header>
+        <div class="footer">
+        <Card>
+            <Card.Header>React Hooks with React-BootStrap App</Card.Header>
             <Card.Body>
-                <Card.Title>Built and Designed By: Bohdan Mykytey</Card.Title>
-                <Card.Text>
-                    App leverages the Financial Modeling App API
-                </Card.Text>
+                <blockquote className="blockquote mb-0">
+                    <p>
+                    App Built Leveraging the Financial Modeling Prep API, I hope you enjoy
+                    using it as much as I enjoyed building it.                         
+                    </p>
+                    <footer className="blockquote-footer">
+                        Bohdan Mykytey
+                    </footer>
+                </blockquote>
             </Card.Body>
         </Card>
+        </div>
     )
 }
 

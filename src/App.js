@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Card, Row, Container, Col, Image, InputGroup, FormControl } from "react-bootstrap";
+import { Button, Card, Col, Image, InputGroup, FormControl } from "react-bootstrap";
 import Footer from './components/footer'
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
           // onKeyPress={(e) => e.key === 'Enter' && fetchData()} need to implement search on enter button
           />
         <InputGroup.Append>
-          <Button variant="outline-secondary" onClick={fetchData}>Button</Button>
+          <Button variant="outline-secondary" onClick={fetchData}>Search</Button>
         </InputGroup.Append>
       </InputGroup>
       </div>

@@ -1,10 +1,17 @@
 .App {
   text-align: center;
   margin: 0 auto;
+  height: 120%;
+}
+
+html, body{
+  height: 100%;
+  width: 100%;
+  clear: both;
 }
 
 .search {
-  padding-top: 10px;
+  padding-top: 14px;
   padding-left: 18.5%;
   padding-right: 18.5%;
 }
@@ -23,6 +30,22 @@
 
 .col-md-4 {
   margin: 0 auto;
+}
+
+.details  {
+  min-height: 600px;
+}
+
+.stocks {
+  min-height: 380px;
+  padding-bottom: 15px;
+}
+
+.footer  {
+  position: relative;
+  height: auto;
+  clear: both;
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
