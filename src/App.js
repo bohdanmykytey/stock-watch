@@ -23,7 +23,10 @@ function App() {
         value={input}
         onChange={(event) => setInput(event.target.value)}
       ></input>
-      <button onClick={fetchData}>Fetch Stocks</button>
+      <button 
+        onClick={fetchData}
+        // onKeyPress={(e) => e.key === 'Enter' && fetchData()} need to implement search on enter button
+        >Fetch Stocks</button>
 
       <div className="stocks">
         {stocks &&
