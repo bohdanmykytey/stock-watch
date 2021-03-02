@@ -28,7 +28,7 @@ function App() {
           aria-describedby="basic-addon2"
           value={input}
           onChange={e => setInput(e.target.value)}
-          // onKeyPress={(e) => e.key === 'Enter' && fetchData()} need to implement search on enter button
+          onKeyPress={(e) => e.key === 'Enter' && fetchData()} need to implement search on enter button
           />
         <InputGroup.Append>
           <Button variant="outline-secondary" onClick={fetchData}>Search</Button>
